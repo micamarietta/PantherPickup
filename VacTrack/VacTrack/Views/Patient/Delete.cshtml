@@ -1,0 +1,11 @@
+﻿@model VacTrack.Models.Patient.PatientModel
+@{
+    ViewData["Title"] = "Delete Patient";
+}
+<h2>Delete Patient</h2>
+<form action="@Url.Action("Delete", "Patient", new { id = Model.PatientID})" method="post">
+    <div class="alert alert-danger" role="alert">
+        Are you sure you want to delete the @Model.FirstName @Model.LastName patient?
+    </div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>

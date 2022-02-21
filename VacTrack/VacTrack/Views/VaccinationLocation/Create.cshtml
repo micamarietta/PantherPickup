@@ -1,0 +1,30 @@
+﻿@model VacTrack.Models.VaccinationLocation.VaccinationLocationModel
+@{
+    ViewData["Title"] = "Add Vaccination Location";
+}
+<h2>Add Vaccination Location</h2>
+<form action="@Url.Action("Create", "VaccinationLocation")" method="post" class="row">
+    <div class="col-sm-6 mb-3">
+        <label for="LocationID" class="form-label">Location</label>
+        <select class="form-select" aria-label="Default select example" id="LocationID" name="LocationID">
+            <option default>Select Location</option>
+            @foreach (var location in Model.Locations)
+            {
+                <option value="@location.LocationID">@location.LocationName</option>
+            }
+        </select>
+    </div>
+    <div class="col-sm-6 mb-3">
+        <label for="VaccineID" class="form-label">Vaccine</label>
+        <select class="form-select" aria-label="Default select example" id="VaccineID" name="VaccineID">
+            <option default>Select Vaccine</option>
+            @foreach (var vaccine in Model.Vaccines)
+            {
+                <option value="@vaccine.VaccineID">@vaccine.Name</option>
+            }
+        </select>
+    </div>
+    <div class="col-sm-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>

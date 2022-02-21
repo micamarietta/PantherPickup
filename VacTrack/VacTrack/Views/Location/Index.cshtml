@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Locations";
+}
+<h2>Locations</h2>
+<div class="alert alert-info">The list of locations is below.</div>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Location ID</td>
+            <td>Location Name</td>
+            <td>City</td>
+            <td>State</td>
+            <td>Zip Code</td>
+            <td></td>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.LocationID</td>
+    <td>@item.LocationName</td>
+    <td>@item.City</td>
+    <td>@item.State</td>
+    <td>@item.ZipCode</td>
+    <td>
+        <a href="@Url.Action("Details", "Location", new { id = item.LocationID })" class="btn btn-outline-primary" role="button">Info</a>
+        <a href="@Url.Action("Edit", "Location", new { id = item.LocationID })" class="btn btn-outline-primary" role="button">Edit</a>
+    </td>
+</tr>
+    }
+</table>
+
+<a href="@Url.Action("Create", "Location")" class="btn btn-primary" role="button">Add Location</a>

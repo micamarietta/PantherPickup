@@ -1,0 +1,32 @@
+﻿@model VacTrack.Models.Location.LocationModel
+@{
+    ViewData["Title"] = "Edit Location";
+}
+<h2>Edit Location</h2>
+<form action="@Url.Action("Edit", "Location", new { id = Model.LocationID})" method="post" class="row">
+    <div class="col-sm-6 mb-3">
+        <label for="LocationName" class="form-label">Name</label>
+        <input type="text" class="form-control" id="LocationName" name="LocationName" value="@Model.LocationName">
+    </div>
+    <div class="col-sm-6 mb-3">
+        <label for="Address" class="form-label">Last A</label>
+        <input type="text" class="form-control" id="Address" name="Address" value="@Model.Address">
+    </div>
+    <div class="col-sm-6 mb-3">
+        <label for="City" class="form-label">City</label>
+        <input type="text" class="form-control" id="City" name="City" value="@Model.City">
+    </div>
+    <div class="col-sm-6 mb-3">
+        <label for="State" class="form-label">State</label>
+        <input type="text" class="form-control" id="Age" name="Age" value="@Model.State">
+    </div>
+
+    <div class="col-sm-6 mb-3">
+        <label for="ZipCode" class="form-label">Zip Code</label>
+        <input type="text" class="form-control" id="ZipCode" name="ZipCode" maxlength="5" value="@Model.ZipCode">
+    </div>
+    <div class="col-sm-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="@Url.Action("Delete", "Location",new { id = Model.LocationID})" class="btn btn-danger">Delete</a>
+    </div>
+</form>

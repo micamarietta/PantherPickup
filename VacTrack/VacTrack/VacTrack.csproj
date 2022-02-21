@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="MySql.Data" Version="8.0.24" />
+    <PackageReference Include="EPPlus" Version="5.6.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Views\Vaccine\" />
+    <Folder Include="Models\Vaccine\" />
+    <Folder Include="Models\Patient\" />
+    <Folder Include="Views\Patient\" />
+    <Folder Include="Models\Location\" />
+    <Folder Include="Views\Location\" />
+    <Folder Include="Models\VaccinationLocation\" />
+    <Folder Include="Views\VaccinationLocation\" />
+    <Folder Include="Models\Appointment\" />
+    <Folder Include="Views\Appointment\" />
+    <Folder Include="Models\Home\" />
+    <Folder Include="Models\Common\" />
+  </ItemGroup>
+</Project>

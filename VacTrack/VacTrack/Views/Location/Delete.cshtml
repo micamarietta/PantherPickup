@@ -1,0 +1,11 @@
+﻿@model VacTrack.Models.Location.LocationModel
+@{
+    ViewData["Title"] = "Delete Location";
+}
+<h2>Delete Patient</h2>
+<form action="@Url.Action("Delete", "Location", new { id = Model.LocationID})" method="post">
+    <div class="alert alert-danger" role="alert">
+        Are you sure you want to delete the @Model.LocationName location?
+    </div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>

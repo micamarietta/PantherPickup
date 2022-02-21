@@ -1,0 +1,28 @@
+﻿@model List<VacTrack.Models.VaccinationLocation.VaccinationLocationModel>
+@{
+    ViewData["Title"] = "Locations";
+}
+<h2>Vaccination Locations</h2>
+<div class="alert alert-info">The list of vaccination locations is below.</div>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Vaccine</td>
+            <td>Location</td>
+            <td></td>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Vaccine.Name</td>
+            <td>@item.Location.LocationName</td>
+            <td>
+                <a href="@Url.Action("Details", "VaccinationLocation", new { id = item.VaccinationLocationID })" class="btn btn-outline-primary" role="button">Info</a>
+                <a href="@Url.Action("Edit", "VaccinationLocation", new { id = item.VaccinationLocationID })" class="btn btn-outline-primary" role="button">Edit</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<a href="@Url.Action("Create", "VaccinationLocation")" class="btn btn-primary" role="button">Add Vaccination Location</a>

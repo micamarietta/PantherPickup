@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Add Vaccine";
+}
+<h2>Add Vaccine</h2>
+<form action="@Url.Action("Create", "Vaccine")" method="post" class="row">
+    <div class="col-sm-6 mb-3">
+        <label for="VaccineName" class="form-label">Vaccine Name</label>
+        <input type="text" class="form-control" id="Name" name="Name">
+    </div>
+    <div class="col-sm-6 mb-3">
+        <label for="numOfDoses" class="form-label">Number of Doses</label>
+        <input type="number" class="form-control" id="numOfDoses" name="numOfDoses">
+    </div>
+    <div class="col-sm-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
