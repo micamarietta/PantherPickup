@@ -19,12 +19,12 @@ jobs:
         dotnet-version: 5.0.x
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: \VacTrack\VacTrack.sln
+      working-directory: VacTrack
             
     - name: Build
       run: dotnet build --no-restore
-      working-directory: \VacTrack\VacTrack.sln
+      working-directory: VacTrack
       
     - name: Test
       run: dotnet test --no-build --verbosity normal
-      working-directory: \VacTrack\VacTrack.sln
+      working-directory: VacTrack
