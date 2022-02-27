@@ -1,5 +1,5 @@
 ﻿using System;
-namespace VacTrack.Models.Patient
+namespace PantherPickup.Models.Patient
 {
     public class PatientModel
     {

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace VacTrack.Models.Location
+namespace PantherPickup.Models.Location
 {
     public class LocationModel
     {

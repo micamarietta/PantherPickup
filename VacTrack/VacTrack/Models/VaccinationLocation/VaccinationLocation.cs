@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using VacTrack.Models.Location;
-using VacTrack.Models.Vaccine;
+using PantherPickup.Models.Location;
+using PantherPickup.Models.Vaccine;
 
-namespace VacTrack.Models.VaccinationLocation
+namespace PantherPickup.Models.VaccinationLocation
 {
     public class VaccinationLocationModel
     {

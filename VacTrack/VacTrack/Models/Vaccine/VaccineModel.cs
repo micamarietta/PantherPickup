@@ -1,5 +1,5 @@
 ﻿using System;
-namespace VacTrack.Models.Vaccine
+namespace PantherPickup.Models.Vaccine
 {
     public class VaccineModel
     {

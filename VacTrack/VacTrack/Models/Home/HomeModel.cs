@@ -1,5 +1,5 @@
 ﻿using System;
-namespace VacTrack.Models.Home
+namespace PantherPickup.Models.Home
 {
     public class HomeModel
     {

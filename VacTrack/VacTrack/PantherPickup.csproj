@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <StartupObject>PantherPickup.Program</StartupObject>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\HomeController.cs" />
+    <Compile Remove="Controllers\LocationController.cs" />
+    <Compile Remove="Controllers\PatientController.cs" />
+    <Compile Remove="Controllers\VaccinationLocationController.cs" />
+    <Compile Remove="Controllers\VaccineController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Passenger\Create.cshtml" />
+    <Content Remove="Views\Passenger\Delete.cshtml" />
+    <Content Remove="Views\Passenger\Details.cshtml" />
+    <Content Remove="Views\Passenger\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="EPPlus" Version="5.6.4" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Views\Vaccine\" />
+    <Folder Include="Models\Vaccine\" />
+    <Folder Include="Models\Patient\" />
+    <Folder Include="Views\Patient\" />
+    <Folder Include="Models\Location\" />
+    <Folder Include="Views\Location\" />
+    <Folder Include="Models\VaccinationLocation\" />
+    <Folder Include="Views\VaccinationLocation\" />
+    <Folder Include="Views\Passenger\" />
+    <Folder Include="Models\Home\" />
+    <Folder Include="Models\Common\" />
+  </ItemGroup>
+</Project>

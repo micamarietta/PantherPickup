@@ -1,0 +1,30 @@
+﻿@model List<PantherPickup.Models.Passenger.PassengerModel>
+@{
+    ViewData["Title"] = "Passengers";
+}
+<h2>Appointments</h2>
+<div class="alert alert-info">The list of passengers is below.</div>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Vaccine</td>
+            <td>Location</td>
+            <td>Date</td>
+            <td></td>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.PassengerName</td>
+
+    <td>
+        <a href="@Url.Action("Details", "Appointment", new { id = item.PassengerName })" class="btn btn-outline-primary" role="button">Info</a>
+        <a href="@Url.Action("Edit", "Appointment", new { id = item.PassengerName })" class="btn btn-outline-primary" role="button">Edit</a>
+    </td>
+</tr>
+    }
+</table>
+
+<a href="@Url.Action("Create", "Appointment")" class="btn btn-primary" role="button">Add Appointment</a>

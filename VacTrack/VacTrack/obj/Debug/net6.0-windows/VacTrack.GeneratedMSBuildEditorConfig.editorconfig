@@ -1,0 +1,128 @@
+is_global = true
+build_property.TargetFramework = net6.0-windows
+build_property.TargetPlatformMinVersion = 7.0
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = VacTrack
+build_property.RootNamespace = VacTrack
+build_property.ProjectDir = C:\Users\rmari\Documents\PanPickup\VacTrack\VacTrack\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\rmari\Documents\PanPickup\VacTrack\VacTrack
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/Location/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/Location/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/Location/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/Location/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/Location/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9jYXRpb25cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/Passenger/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFzc2VuZ2VyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/Patient/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/Patient/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/Patient/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/Patient/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/Patient/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/VaccinationLocation/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjY2luYXRpb25Mb2NhdGlvblxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/VaccinationLocation/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjY2luYXRpb25Mb2NhdGlvblxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/VaccinationLocation/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjY2luYXRpb25Mb2NhdGlvblxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/VaccinationLocation/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjY2luYXRpb25Mb2NhdGlvblxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/VaccinationLocation/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjY2luYXRpb25Mb2NhdGlvblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/Vaccine/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjY2luZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/Vaccine/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjY2luZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/Vaccine/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjY2luZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/Vaccine/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjY2luZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/Vaccine/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjY2luZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rmari/Documents/PanPickup/VacTrack/VacTrack/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

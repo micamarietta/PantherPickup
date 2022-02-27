@@ -1,5 +1,5 @@
 ﻿using System;
-namespace VacTrack.Models.Common
+namespace PantherPickup.Models.Common
 {
     public class SearchModel
     {

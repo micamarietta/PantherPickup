@@ -1,6 +1,6 @@
 using System;
 
-namespace VacTrack.Models
+namespace PantherPickup.Models
 {
     public class ErrorViewModel
     {
