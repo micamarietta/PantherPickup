@@ -5,9 +5,10 @@ using System.IO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using MySql.Data.MySqlClient;
+//using MySql.Data.MySqlClient;
 using OfficeOpenXml;
 using OfficeOpenXml.Table;
+/*
 using VacTrack.Models;
 using VacTrack.Models.Appointment;
 using VacTrack.Models.Home;
@@ -15,6 +16,7 @@ using VacTrack.Models.Location;
 using VacTrack.Models.Patient;
 using VacTrack.Models.VaccinationLocationDownload;
 using VacTrack.Models.Vaccine;
+*/
 
 namespace VacTrack.Controllers
 {
@@ -29,20 +31,20 @@ namespace VacTrack.Controllers
             _logger = logger;
             Configuration = _configuration;
         }
-
+        /*
         public IActionResult Index()
         {
-            var conn = new MySqlConnection(Configuration.GetConnectionString("VacTrack"));
+            //var conn = new MySqlConnection(Configuration.GetConnectionString("VacTrack"));
             string sql;
-            MySqlDataReader reader;
-            MySqlCommand command;
+            //MySqlDataReader reader;
+            //MySqlCommand command;
 
             // model for the homepage
-            var model = new HomeModel();
+            //var model = new HomeModel();
             try
             {
                 // get vaccine count
-                conn.Open();
+                //conn.Open();
                 sql = "SELECT COUNT(*) AS VaccineCount FROM Vaccine WHERE IsDeleted != 1";
                 command = new MySqlCommand(sql, conn);
                 reader = command.ExecuteReader();
@@ -86,12 +88,12 @@ namespace VacTrack.Controllers
 
             return View(model);
         }
-
+        */
         public IActionResult Privacy()
         {
             return View();
         }
-
+        /*
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
@@ -249,7 +251,7 @@ namespace VacTrack.Controllers
             {
                 conn.Close();
             }
-        }
+        }*/
 
     }
 }
