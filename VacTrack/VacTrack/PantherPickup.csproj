@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\HomeController.cs" />
     <Compile Remove="Controllers\LocationController.cs" />
     <Compile Remove="Controllers\PatientController.cs" />
     <Compile Remove="Controllers\VaccinationLocationController.cs" />

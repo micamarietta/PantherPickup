@@ -7862,19 +7862,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jrrou\\.nuget\\packages\\": {}
+    "C:\\Users\\rmari\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jrrou\\OneDrive\\spring 2022\\se 498\\PantherPickup\\VacTrack\\VacTrack\\PantherPickup.csproj",
+      "projectUniqueName": "C:\\Users\\rmari\\Documents\\PanPickup\\VacTrack\\VacTrack\\PantherPickup.csproj",
       "projectName": "PantherPickup",
-      "projectPath": "C:\\Users\\jrrou\\OneDrive\\spring 2022\\se 498\\PantherPickup\\VacTrack\\VacTrack\\PantherPickup.csproj",
-      "packagesPath": "C:\\Users\\jrrou\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jrrou\\OneDrive\\spring 2022\\se 498\\PantherPickup\\VacTrack\\VacTrack\\obj\\",
+      "projectPath": "C:\\Users\\rmari\\Documents\\PanPickup\\VacTrack\\VacTrack\\PantherPickup.csproj",
+      "packagesPath": "C:\\Users\\rmari\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\rmari\\Documents\\PanPickup\\VacTrack\\VacTrack\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jrrou\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\rmari\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7923,6 +7923,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[5.0.14, 5.0.14]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
