@@ -11,7 +11,7 @@ using PantherPickup.Models.VaccinationLocation;
 
 namespace PantherPickup.Controllers
 {
-    public class PassengerController : Controller
+    public class Passening PantherPickup.Models.PassengerController : Controller
     {
         private readonly IConfiguration Configuration;
 

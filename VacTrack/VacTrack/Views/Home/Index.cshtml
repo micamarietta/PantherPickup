@@ -1,89 +1,157 @@
 ﻿@model PantherPickup.Models.Home.HomeModel
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Sign Up";
 }
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-6">
-            <h2>Welcome to VacTrack</h2>
-            <a href="@Url.Action("Download", "Home")" class="btn btn-primary" role="button">Download VacTrack Records</a>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget gravida nibh. Aliquam erat volutpat. Etiam condimentum leo non erat porta malesuada. Aenean tristique, nisi nec porttitor mollis, dui erat dignissim nulla, tristique imperdiet metus ligula sit amet odio. Praesent risus diam, tincidunt ut feugiat euismod, luctus ac massa. Suspendisse eget leo enim. Nam ut vehicula turpis, eu convallis libero. Nullam dapibus euismod laoreet. Proin pretium aliquet est eu gravida. Pellentesque et auctor urna. Morbi accumsan tellus nulla, ut dapibus justo lacinia a. Quisque fermentum semper eros eget efficitur. Integer quis posuere sapien, eu maximus felis. Sed efficitur bibendum pretium. Nunc nec fringilla est, vitae lacinia erat. Vestibulum libero nibh, consectetur id nisi ac, rhoncus lobortis dui.</p>
-        </div>
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mbMySqlTransaction trans = conn.BeginTransaction();;md-5">Sign Up</h3>
+            <form action="@Url.Action("Create", "Home")" method="post" class="row">
 
+                <div class="row">
+                <div class="col-md-6 mb-4">
 
+                  <h6 class="mb-2 pb-1">Account Type: </h6>
 
-        <div class="col-sm-6">
-            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="inlineRadioOptions"
+                      id="passenger"
+                      value="option1"
+                      checked
+                    />
+                    <label class="form-check-label" for="passenger">Passenger</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="inlineRadioOptions"
+                      id="driver"
+                      value="option2"
+                    />
+                    <label class="form-check-label" for="driver">Driver</label>
+                  </div>
                 </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="~/img/outdoormask.jpeg" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Patients</h5>
-                            <p>View patients getting their vaccines today!</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="~/img/family.jpeg" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Appointments</h5>
-                            <p>View and add vaccination appointments.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="~/img/work2.jpeg" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Vaccines</h5>
-                            <p>Take a look at the vaccines available.</p>
-                        </div>
-                    </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+
+                  <div class="form-outline">
+                    <input type="text" id="Name" name="Name" class="form-control form-control-lg" />
+                    <label class="form-label" for="Name"> Name</label>
+                  </div>
+
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+                <div class="col-md-6 mb-4">
+
+                    <!----
+                  <div class="form-outline">
+                    <input type="text" id="lastName" class="form-control form-control-lg" />
+                    <label class="form-label" for="lastName">Last Name</label>
+                  </div>
+                  -->
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+
+                  <h6 class="mb-2 pb-1">Gender: </h6>
+
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="inlineRadioOptions"
+                      id="femaleGender"
+                      value="option1"
+                      checked
+                    />
+                    <label class="form-check-label" for="femaleGender">Female</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="inlineRadioOptions"
+                      id="maleGender"
+                      value="option2"
+                    />
+                    <label class="form-check-label" for="maleGender">Male</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="inlineRadioOptions"
+                      id="otherGender"
+                      value="option3"
+                    />
+                    <label class="form-check-label" for="otherGender">Other</label>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4 pb-2">
+
+                  <div class="form-outline">
+                    <input type="email" id="email" name="Email" class="form-control form-control-lg" />
+                    <label class="form-label" for="email">Email</label>
+                  </div>
+
+                </div>
+                <div class="col-md-6 mb-4 pb-2">
+
+                  <div class="form-outline">
+                    <input type="tel" id="password" name="Password" class="form-control form-control-lg" />
+                    <label class="form-label" for="password">Password</label>
+                  </div>
+
+                </div>
+              </div>
+
+              <label class="form-label select-label">Select Year</label>
+              <div class="row">
+                <div class="col-12">
+                  
+                  <select class="select form-control-lg">
+                    <option value="1" disabled>Choose option</option>
+                    <option value="2">Freshman</option>
+                    <option value="3">Sophomore</option>
+                    <option value="4">Junior</option>
+                    <option value="4">Senior</option>
+                  </select>
+
+                  <div class="form-outline">
+                    <input type="text" id="major" name="Major" class="form-control form-control-lg" />
+                    <label class="form-label" for="major">Major</label>
+                  </div>
+
+
+                </div>
+              </div>
+
+              <div class="mt-4 pt-2">
+                <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
+              </div>
+
+            </form>
+          </div>
         </div>
+      </div>
     </div>
-    <br />
-
-    <div class="row">
-        <div class="col-md-12 col-lg-4">
-            <div class="card">
-                <img src="~/img/vaccine.jpeg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Vaccines (@Model.VaccineCount)</h5>
-                    <p class="card-text">There are a lot of options to choose from. Find out which one works best for you.</p>
-                    <a href="@Url.Action("Index", "Vaccine")" class="btn btn-primary">See Vaccines</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 col-lg-4">
-            <div class="card">
-                <img src="~/img/childmask.jpeg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Patients (@Model.PatientCount)</h5>
-                    <p class="card-text">Friends and family are getting vaccinated! Take a look at other patients getting their vaccines.</p>
-                    <a href="@Url.Action("Index", "Patient")" class="btn btn-primary">See Patients</a>
-                </div>
-            </div>
-        </div><div class="col-md-12 col-lg-4">
-            <div class="card">
-                <img src="~/img/appointment.jpeg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Appointments (@Model.AppointmentCount)</h5>
-                    <p class="card-text">Many locations are offering vaccination appointments. See which one works for you.</p>
-                    <a href="@Url.Action("Index", "Vaccine")" class="btn btn-primary">See Appointments</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+  </div>
+</section>

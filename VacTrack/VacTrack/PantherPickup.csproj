@@ -10,11 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Controllers\HomeController.cs" />
     <Compile Remove="Controllers\LocationController.cs" />
+    <Compile Remove="Controllers\PassengerController.cs" />
     <Compile Remove="Controllers\PatientController.cs" />
     <Compile Remove="Controllers\VaccinationLocationController.cs" />
     <Compile Remove="Controllers\VaccineController.cs" />
+    <Compile Remove="Models\Passenger\PassengerModel.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +23,7 @@
     <Content Remove="Views\Passenger\Delete.cshtml" />
     <Content Remove="Views\Passenger\Details.cshtml" />
     <Content Remove="Views\Passenger\Edit.cshtml" />
+    <Content Remove="Views\Passenger\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />

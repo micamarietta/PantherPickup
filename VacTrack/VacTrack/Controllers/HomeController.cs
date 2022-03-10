@@ -4,17 +4,18 @@ using System.Diagnostics;
 using System.IO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using System.Data.SqlClient;
 using Microsoft.Extensions.Logging;
-using MySql.Data.MySqlClient;
 using OfficeOpenXml;
 using OfficeOpenXml.Table;
-using VacTrack.Models;
-using VacTrack.Models.Appointment;
-using VacTrack.Models.Home;
-using VacTrack.Models.Location;
-using VacTrack.Models.Patient;
-using VacTrack.Models.VaccinationLocationDownload;
-using VacTrack.Models.Vaccine;
+//using VacTrack.Models;
+//using VacTrack.Models.Appointment;
+using PantherPickup.Models.Home;
+using PantherPickup.Models;
+//using VacTrack.Models.Location;
+//using VacTrack.Models.Patient;
+//using VacTrack.Models.VaccinationLocationDownload;
+//using VacTrack.Models.Vaccine;
 
 namespace VacTrack.Controllers
 {
@@ -30,16 +31,81 @@ namespace VacTrack.Controllers
             Configuration = _configuration;
         }
 
-        public IActionResult Index()
+        public ActionResult Index()
         {
-            var conn = new MySqlConnection(Configuration.GetConnectionString("VacTrack"));
-            string sql;
-            MySqlDataReader reader;
-            MySqlCommand command;
+            var model = new List<HomeModel>();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
+                {
+                    SqlCommand command = new SqlCommand("SELECT * FROM person", connection);
+                    command.Connection.Open();
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        var item = new HomeModel();
+                        item.Name = (string)reader["name"];
+                        model.Add(item);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // return View("Error", new ErrorViewModel { ErrorMessage = ex.Message });
+            }
+
+            return View();
+
+        }
+
+        [HttpPost]
+        public ActionResult Create(HomeModel model)
+        {
+            var conn = new SqlConnection(Configuration.GetConnectionString("PantherPickup"));
+            conn.Open();
+            SqlTransaction trans = conn.BeginTransaction();;
+
+            try
+            {
+                //insert the new person
+                Console.WriteLine(model.Name);
+                var sql = string.Format("INSERT INTO person (name, password, email, grade, major) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}')", model.Name, model.password, model.email, model.grade, model.major);
+                var command = new SqlCommand(sql, conn, trans);
+                command.ExecuteNonQuery();
+                trans.Commit();
+                //redirect back to the location list
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                trans.Rollback();
+                return View("Error", new ErrorViewModel { ErrorMessage = ex.Message });
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+            // public IActionResult Index()
+            //{
+            // var conn = new MySqlConnection(Configuration.GetConnectionString("VacTrack"));
+            //string sql;
+            //MySqlDataReader reader;
+            //MySqlCommand command;
 
             // model for the homepage
-            var model = new HomeModel();
-            try
+            //var model = new HomeModel();
+            /*try
             {
                 // get vaccine count
                 conn.Open();
@@ -202,12 +268,12 @@ namespace VacTrack.Controllers
 
                 //read patient data
                 conn.Open();
-                sql = "SELECT * FROM patient";
-                command = new MySqlCommand(sql, conn);
-                reader = command.ExecuteReader();
+               // sql = "SELECT * FROM patient";
+               // command = new MySqlCommand(sql, conn);
+               // reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    var item = new PatientModel
+                   // var item = new PatientModel
                     {
                         PatientID = (int)reader["PatientID"],
                         FirstName = (string)reader["FirstName"],
@@ -243,13 +309,14 @@ namespace VacTrack.Controllers
             }
             catch (Exception ex)
             {
-                return View("Error", new ErrorViewModel { ErrorMessage = ex.Message });
+                //return View("Error", new ErrorViewModel { ErrorMessage = ex.Message });
             }
             finally
             {
                 conn.Close();
-            }
-        }
+            }*/
 
-    }
+
+        
 }
+
