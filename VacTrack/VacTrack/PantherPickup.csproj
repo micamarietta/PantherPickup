@@ -41,7 +41,6 @@
     <Folder Include="Models\VaccinationLocation\" />
     <Folder Include="Views\VaccinationLocation\" />
     <Folder Include="Views\Passenger\" />
-    <Folder Include="Models\Home\" />
     <Folder Include="Models\Common\" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,132 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using System.Data.SqlClient;
+using Microsoft.Extensions.Logging;
+using OfficeOpenXml;
+using OfficeOpenXml.Table;
+//using VacTrack.Models;
+//using VacTrack.Models.Appointment;
+using PantherPickup.Models.Account;
+using PantherPickup.Models;
+//using VacTrack.Models.Location;
+//using VacTrack.Models.Patient;
+//using VacTrack.Models.VaccinationLocationDownload;
+//using VacTrack.Models.Vaccine;
+
+namespace VacTrack.Controllers
+{
+    public class AccountController : Controller
+    {
+        private readonly ILogger<AccountController> _logger;
+
+        private readonly IConfiguration Configuration;
+
+        public AccountController(ILogger<AccountController> logger, IConfiguration _configuration)
+        {
+            _logger = logger;
+            Configuration = _configuration;
+        }
+
+        public ActionResult Index()
+        {
+            var model = new List<AccountModel>();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
+                {
+                    SqlCommand command = new SqlCommand("SELECT * FROM person", connection);
+                    command.Connection.Open();
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        var item = new AccountModel();
+                        item.Name = (string)reader["name"];
+                        model.Add(item);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // return View("Error", new ErrorViewModel { ErrorMessage = ex.Message });
+            }
+
+            return View();
+
+        }
+
+        //create entry in our data base for a new account based on user info in the sign up page
+
+        [HttpPost]
+        public ActionResult Create(AccountModel model)
+        {
+            var conn = new SqlConnection(Configuration.GetConnectionString("PantherPickup"));
+            conn.Open();
+            SqlTransaction trans = conn.BeginTransaction();;
+
+            try
+            {
+                //insert the new person
+                Console.WriteLine(model.Name);
+                var sql = string.Format("INSERT INTO person (name, password, email, grade, major, isPassenger, year) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}' ,'{5}', '{6}')", model.Name, model.password, model.email, model.grade, model.major, model.isPassenger, model.year);
+                var command = new SqlCommand(sql, conn, trans);
+                command.ExecuteNonQuery();
+                trans.Commit();
+                //redirect back to the location list
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                trans.Rollback();
+                return View("Error", new ErrorViewModel { ErrorMessage = ex.Message });
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View(new LoginModel());
+        }
+
+
+        [HttpPost]
+        public ActionResult Login(LoginModel model)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
+                {
+                    SqlCommand command = new SqlCommand("SELECT * FROM person WHERE email = '" + model.Email + "' AND password = '" + model.Password + "'", connection);
+                    command.Connection.Open();
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        return View("Index");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // return View("Error", new ErrorViewModel { ErrorMessage = ex.Message });
+            }
+
+            return View("Login", new LoginModel { Email = model.Email, ErrorMessage = "Username or password not found."});
+        }
+    }
+
+
+
+
+
+
+
+}
+
