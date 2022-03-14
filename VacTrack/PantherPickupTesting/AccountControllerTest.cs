@@ -75,12 +75,12 @@ namespace PantherPickupTesting
         public void CreateTest()
         {
             accountMod.Name = RandomString(7)  + "TEST";
-            accountMod.password = "testPassword";
-            accountMod.email = "test@chapman.edu";
-            accountMod.grade = "sophomore";
-            accountMod.major = "software engineeringTest";
-            accountMod.isPassenger = true;
-            accountMod.year = 2;
+            accountMod.Password = "testPassword";
+            accountMod.Email = "test@chapman.edu";
+            accountMod.Grade = "sophomore";
+            accountMod.Major = "software engineeringTest";
+            accountMod.IsPassenger = true;
+            accountMod.Year = 2;
             _AccountController.Create(accountMod);
             bool dataAdded = false;
 
