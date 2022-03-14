@@ -25,10 +25,6 @@ namespace VacTrack.Controllers
 
         private readonly IConfiguration Configuration;
 
-        public AccountController()
-        {
-
-        }
         public AccountController(ILogger<AccountController> logger, IConfiguration _configuration)
         {
             _logger = logger;
