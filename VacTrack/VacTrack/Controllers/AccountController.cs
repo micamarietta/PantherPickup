@@ -72,7 +72,7 @@ namespace VacTrack.Controllers
                 //insert the new person
                 Console.WriteLine(model.Name);
                 Console.WriteLine(model.Name);
-                var sql = string.Format("INSERT INTO person (name, password, email, grade, major, isPassenger, year) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}' ,'{5}', '{6}')", model.Name, model.password, model.email, model.grade, model.major, model.isPassenger, model.year);
+                var sql = string.Format("INSERT INTO person (name, password, email, grade, major, isPassenger, year) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}' ,'{5}', '{6}')", model.Name, model.Password, model.Email, model.Grade, model.Major, model.IsPassenger, model.Year);
                 var command = new SqlCommand(sql, conn, trans);
                 command.ExecuteNonQuery();
                 trans.Commit();
