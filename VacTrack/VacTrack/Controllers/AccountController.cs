@@ -25,6 +25,10 @@ namespace VacTrack.Controllers
 
         private readonly IConfiguration Configuration;
 
+        public AccountController()
+        {
+
+        }
         public AccountController(ILogger<AccountController> logger, IConfiguration _configuration)
         {
             _logger = logger;
@@ -51,7 +55,7 @@ namespace VacTrack.Controllers
             }
             catch (Exception ex)
             {
-                // return View("Error", new ErrorViewModel { ErrorMessage = ex.Message });
+                return View("Error", new ErrorViewModel { ErrorMessage = ex.Message });
             }
 
             return View();
@@ -75,7 +79,7 @@ namespace VacTrack.Controllers
                 var command = new SqlCommand(sql, conn, trans);
                 command.ExecuteNonQuery();
                 trans.Commit();
-                //redirect back to the location list
+                //redirect back to the list
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
@@ -109,7 +113,7 @@ namespace VacTrack.Controllers
                     var reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        return View("Index");
+                        return View("tempIndex");
                     }
                 }
             }

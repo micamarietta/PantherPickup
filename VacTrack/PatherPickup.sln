@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PantherPickup", "VacTrack\PantherPickup.csproj", "{B070E43A-82C9-43E9-B586-47B15DA1E38C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PantherPickupTesting", "PantherPickupTesting\PantherPickupTesting.csproj", "{ED02F7B8-065F-44D2-9FDF-793CE1D0692B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B070E43A-82C9-43E9-B586-47B15DA1E38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B070E43A-82C9-43E9-B586-47B15DA1E38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B070E43A-82C9-43E9-B586-47B15DA1E38C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED02F7B8-065F-44D2-9FDF-793CE1D0692B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED02F7B8-065F-44D2-9FDF-793CE1D0692B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED02F7B8-065F-44D2-9FDF-793CE1D0692B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED02F7B8-065F-44D2-9FDF-793CE1D0692B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
