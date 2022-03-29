@@ -79,7 +79,7 @@ namespace PantherPickupTesting
             accountMod.Email = "test@chapman.edu";
             accountMod.Grade = "sophomore";
             accountMod.Major = "software engineeringTest";
-            accountMod.IsPassenger = true;
+            accountMod.IsPassenger = "True";
             accountMod.Year = 2;
             _AccountController.Create(accountMod);
             bool dataAdded = false;
