@@ -8,29 +8,19 @@ using System.Data.SqlClient;
 using Microsoft.Extensions.Logging;
 using OfficeOpenXml;
 using OfficeOpenXml.Table;
-//using VacTrack.Models;
-//using VacTrack.Models.Appointment;
 using PantherPickup.Models.Account;
 using PantherPickup.Models;
-//using VacTrack.Models.Location;
-//using VacTrack.Models.Patient;
-//using VacTrack.Models.VaccinationLocationDownload;
-//using VacTrack.Models.Vaccine;
-
 namespace VacTrack.Controllers
 {
     public class AccountController : Controller
     {
         private readonly ILogger<AccountController> _logger;
-
         private readonly IConfiguration Configuration;
-
         public AccountController(ILogger<AccountController> logger, IConfiguration _configuration)
         {
             _logger = logger;
             Configuration = _configuration;
         }
-
         public ActionResult Index()
         {
             var model = new List<AccountModel>();
@@ -53,20 +43,15 @@ namespace VacTrack.Controllers
             {
                 return View("Error", new ErrorViewModel { ErrorMessage = ex.Message });
             }
-
             return View();
-
         }
-
         //create entry in our data base for a new account based on user info in the sign up page
-
         [HttpPost]
         public ActionResult Create(AccountModel model)
         {
             var conn = new SqlConnection(Configuration.GetConnectionString("PantherPickup"));
             conn.Open();
-            SqlTransaction trans = conn.BeginTransaction();;
-
+            SqlTransaction trans = conn.BeginTransaction(); ;
             try
             {
                 //insert the new person
@@ -76,31 +61,24 @@ namespace VacTrack.Controllers
                 var command = new SqlCommand(sql, conn, trans);
                 command.ExecuteNonQuery();
                 trans.Commit();
-
                 //redirect back to the list
                 return RedirectToAction(nameof(Index));
-
-         
             }
             catch (Exception ex)
             {
                 trans.Rollback();
                 return View("Error", new ErrorViewModel { ErrorMessage = ex.Message });
-
             }
             finally
             {
                 conn.Close();
             }
         }
-
         [HttpGet]
         public ActionResult Login()
         {
             return View(new LoginModel());
         }
-
-
         [HttpPost]
         public ActionResult Login(LoginModel model)
         {
@@ -113,7 +91,14 @@ namespace VacTrack.Controllers
                     var reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        return View("tempIndex");
+                        if (CheckIfPassenger(model))
+                        {
+                            return View("passengerIndex");
+                        }
+                        else
+                        {
+                            return View("tempIndex");
+                        }
                     }
                 }
             }
@@ -121,16 +106,36 @@ namespace VacTrack.Controllers
             {
                 // return View("Error", new ErrorViewModel { ErrorMessage = ex.Message });
             }
+            return View("Login", new LoginModel { Email = model.Email, ErrorMessage = "Username or password not found." });
+        }
+        public bool CheckIfPassenger(LoginModel model)
+        {
+            using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
+            {
+                SqlCommand command = new SqlCommand("SELECT isPassenger FROM person WHERE email = '" + model.Email + "' AND password = '" + model.Password + "'", connection);
+                command.Connection.Open();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    //if our user is a passenger
+                    var item = new AccountModel();
+                    String test;
+                    test = Convert.ToString(reader["isPassenger"]);
+                    
+;
+                    if (test == "True")
+                    {
 
-            return View("Login", new LoginModel { Email = model.Email, ErrorMessage = "Username or password not found."});
+                       return true;
+                    }
+                    //if our user is a driver
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+           return false;
         }
     }
-
-
-
-
-
-
-
 }
-
