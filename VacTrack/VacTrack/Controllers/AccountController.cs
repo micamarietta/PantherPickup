@@ -35,6 +35,11 @@ namespace VacTrack.Controllers
                     {
                         var item = new AccountModel();
                         item.Name = (string)reader["name"];
+                        
+                   //     item.Email = (string)reader["email"];
+                    //    item.IsPassenger = (string)reader["isPassenger"];
+                     //   item.Major = (string)reader["major"];
+
                         model.Add(item);
                     }
                 }
@@ -55,7 +60,6 @@ namespace VacTrack.Controllers
             try
             {
                 //insert the new person
-                Console.WriteLine(model.Name);
                 Console.WriteLine(model.Name);
                 var sql = string.Format("INSERT INTO person (name, password, email, grade, major, isPassenger, year) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}' ,'{5}', '{6}')", model.Name, model.Password, model.Email, model.Grade, model.Major, model.IsPassenger, model.Year);
                 var command = new SqlCommand(sql, conn, trans);
@@ -80,7 +84,7 @@ namespace VacTrack.Controllers
             return View(new LoginModel());
         }
         [HttpPost]
-        public ActionResult Login(LoginModel model)
+        public ActionResult Login(LoginModel model, AccountModel accModel)
         {
             try
             {
@@ -93,7 +97,7 @@ namespace VacTrack.Controllers
                     {
                         if (CheckIfPassenger(model))
                         {
-                            return View("passengerIndex");
+                            return View("TempProfile", accModel);
                         }
                         else
                         {
@@ -137,5 +141,27 @@ namespace VacTrack.Controllers
             }
            return false;
         }
+
+       // public AccountModel readModel(LoginModel model)
+        //{
+          //  AccountModel returnModel = new AccountModel();
+
+            //using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
+            //{
+              //  SqlCommand command = new SqlCommand("SELECT * FROM person WHERE email = '" + model.Email + "' AND password = '" + model.Password + "'", connection);
+               // command.Connection.Open();
+               // var reader = command.ExecuteReader();
+               // while (reader.Read())
+               // {
+                //    returnModel.Name = (string)reader["name"];
+                 //   returnModel.Email = (string)reader["email"];
+                  //  returnModel.IsPassenger = (string)reader["isPassenger"];
+                   // returnModel.Major = (string)reader["major"];
+                //}
+            //}
+
+//            return returnModel;
+  //      }
+
     }
 }
