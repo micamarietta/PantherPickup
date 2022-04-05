@@ -97,6 +97,7 @@ namespace VacTrack.Controllers
                     {
                         if (CheckIfPassenger(model))
                         {
+                            accModel.Name = "MICA";
                             return View("TempProfile", accModel);
                         }
                         else
@@ -142,26 +143,26 @@ namespace VacTrack.Controllers
            return false;
         }
 
-       // public AccountModel readModel(LoginModel model)
-        //{
-          //  AccountModel returnModel = new AccountModel();
+        public AccountModel readModel(LoginModel model)
+        {
+            AccountModel returnModel = new AccountModel();
 
-            //using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
-            //{
-              //  SqlCommand command = new SqlCommand("SELECT * FROM person WHERE email = '" + model.Email + "' AND password = '" + model.Password + "'", connection);
-               // command.Connection.Open();
-               // var reader = command.ExecuteReader();
-               // while (reader.Read())
-               // {
-                //    returnModel.Name = (string)reader["name"];
-                 //   returnModel.Email = (string)reader["email"];
-                  //  returnModel.IsPassenger = (string)reader["isPassenger"];
-                   // returnModel.Major = (string)reader["major"];
-                //}
-            //}
+            using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
+            {
+               SqlCommand command = new SqlCommand("SELECT * FROM person WHERE email = '" + model.Email + "' AND password = '" + model.Password + "'", connection);
+               command.Connection.Open();
+               var reader = command.ExecuteReader();
+               while (reader.Read())
+               {
+                   returnModel.Name = (string)reader["name"];
+                   returnModel.Email = (string)reader["email"];
+                   returnModel.IsPassenger = (string)reader["isPassenger"];
+                   returnModel.Major = (string)reader["major"];
+                }
+            }
 
-//            return returnModel;
-  //      }
+            return returnModel;
+    }
 
     }
 }
