@@ -21,35 +21,7 @@ namespace VacTrack.Controllers
             _logger = logger;
             Configuration = _configuration;
         }
-        public ActionResult Index()
-        {
-            var model = new List<AccountModel>();
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
-                {
-                    SqlCommand command = new SqlCommand("SELECT * FROM person", connection);
-                    command.Connection.Open();
-                    var reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        var item = new AccountModel();
-                        item.Name = (string)reader["name"];
-                        
-                   //     item.Email = (string)reader["email"];
-                    //    item.IsPassenger = (string)reader["isPassenger"];
-                     //   item.Major = (string)reader["major"];
 
-                        model.Add(item);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                return View("Error", new ErrorViewModel { ErrorMessage = ex.Message });
-            }
-            return View();
-        }
         //create entry in our data base for a new account based on user info in the sign up page
         [HttpPost]
         public ActionResult Create(AccountModel model)
@@ -95,14 +67,14 @@ namespace VacTrack.Controllers
                     var reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        if (CheckIfPassenger(model))
+                        if (isPassenger(model))
                         {
-                            accModel.Name = "MICA";
-                            return View("TempProfile", accModel);
+
+                            return Redirect("~/Passenger/Index");
                         }
                         else
                         {
-                            return View("tempIndex");
+                            return Redirect("~/Driver/Index");
                         }
                     }
                 }
@@ -113,7 +85,7 @@ namespace VacTrack.Controllers
             }
             return View("Login", new LoginModel { Email = model.Email, ErrorMessage = "Username or password not found." });
         }
-        public bool CheckIfPassenger(LoginModel model)
+        public bool isPassenger(LoginModel model)
         {
             using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
             {
@@ -143,7 +115,7 @@ namespace VacTrack.Controllers
            return false;
         }
 
-        public AccountModel readModel(LoginModel model)
+       /* public AccountModel readModel(LoginModel model)
         {
             AccountModel returnModel = new AccountModel();
 
@@ -162,7 +134,7 @@ namespace VacTrack.Controllers
             }
 
             return returnModel;
-    }
+    }*/
 
     }
 }

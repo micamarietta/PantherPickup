@@ -18,7 +18,7 @@ namespace PantherPickup.Models.Account
         public int Year { get; set; }
         public int NumRides { get; set; }
         public float Rating { get; set; }
-        public string IsPassenger { get; set; }
+        public bool IsPassenger { get; set; }
 
     }
 }

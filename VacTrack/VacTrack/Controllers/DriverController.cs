@@ -1,30 +1,27 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Http;
+using System.Diagnostics;
+using System.IO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 using Microsoft.Extensions.Logging;
-using PantherPickup.Models;
+using OfficeOpenXml;
+using OfficeOpenXml.Table;
 using PantherPickup.Models.Account;
 using PantherPickup.Utilities;
-using PantherPickup.Models.Patient;
-using PantherPickup.Models.Passenger;
-using PantherPickup.Models.VaccinationLocation;
-
-namespace PantherPickup.Controllers
+using PantherPickup.Models;
+namespace VacTrack.Controllers
 {
-    public class PassengerController : Controller
+    public class DriverController : Controller
     {
-        private readonly ILogger<PassengerController> _logger;
+        private readonly ILogger<DriverController> _logger;
         private readonly IConfiguration Configuration;
-
-        public PassengerController(ILogger<PassengerController> logger, IConfiguration _configuration)
+        public DriverController(ILogger<DriverController> logger, IConfiguration _configuration)
         {
             _logger = logger;
             Configuration = _configuration;
         }
-
         public ActionResult Index()
         {
             var model = new List<AccountModel>();
@@ -32,7 +29,7 @@ namespace PantherPickup.Controllers
             {
                 using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
                 {
-                    SqlCommand command = new SqlCommand("SELECT * FROM person WHERE email = 'marietta@chapman.edu' ", connection);
+                    SqlCommand command = new SqlCommand("SELECT * FROM person WHERE email = 'chiggiechang@gmail.com' ", connection);
                     command.Connection.Open();
                     var reader = command.ExecuteReader();
                     while (reader.Read())
@@ -52,6 +49,7 @@ namespace PantherPickup.Controllers
                 return View("Error", new ErrorViewModel { ErrorMessage = ex.Message });
             }
             return View();
+
         }
 
         public ActionResult Profile()
@@ -61,7 +59,7 @@ namespace PantherPickup.Controllers
             {
                 using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
                 {
-                    SqlCommand command = new SqlCommand("SELECT * FROM person WHERE email = 'marietta@chapman.edu' ", connection);
+                    SqlCommand command = new SqlCommand("SELECT * FROM person WHERE email = 'chiggiechang@gmail.com' ", connection);
                     command.Connection.Open();
                     var reader = command.ExecuteReader();
                     while (reader.Read())
@@ -80,5 +78,6 @@ namespace PantherPickup.Controllers
             return View(model);
         }
 
+        
     }
 }

@@ -1,7 +1,17 @@
 ﻿@{
-    ViewData["Title"] = "Passengers";
-    }
-    <h2>Welcome passenger!</h2>
+    ViewData["Title"] = "Temp Home";
+}
+
+    <div class="container">
+    <div class="row">
+        <div class="col col-lg-12 col-xl-6">
+             <h2>Welcome driver!</h2>
+        </div>
+       <div class="col col-lg-12 col-xl-6">
+           <div class="text-center">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Driver" asp-action="Profile">Profile</a>
+    </div>
+       </div>
    
     <!--Google map-->
     <div class="text-center">
@@ -13,17 +23,12 @@
 
     <!--Google Maps-->
 
-    <div class="text-center">
-        <button class= "btn btn-primary btn-lg" type= "submit" style= "padding: 10px">Create Ride Request</button>
-    </div>
-
-
     <div id="accordion">
   <div class="card">
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
         <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Driver: Jessie Roux
+          Passenger: Jessie Roux
           April 22nd 5:00 pm
         </button>
       </h5>
@@ -39,18 +44,19 @@
     <div class="card-header" id="headingTwo">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Driver: Jessie Roux
+          Passenger: Jessie Roux
           April 22nd 5:00 pm
         </button>
       </h5>
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
-        Driver: Jessie Roux
+        Passenger: Jessie Roux
         April 22nd 5:00 pm
         To: Long Beach Airport
         From: Chapman University
         <br />
+        <button type="button" class="btn btn-success">Accept Ride</button>
         <button type="button" class="btn btn-danger">Cancel Request</button>
       </div>
     </div>
@@ -59,7 +65,7 @@
     <div class="card-header" id="headingThree">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Driver: Jessie Roux
+          Passenger: Jessie Roux
           April 22nd 5:00 pm
         </button>
       </h5>
