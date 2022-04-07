@@ -18,6 +18,7 @@ namespace PantherPickupTesting
         private readonly ILogger<AccountController> _logger;
         private AccountController _AccountController { get; set; } = null!;
         private AccountModel accountMod { get; set; } = null!;
+        private LoginModel loginMod { get; set; } = null!;
 
         private static Random random = new Random();
 
@@ -32,6 +33,7 @@ namespace PantherPickupTesting
 
             _AccountController = new AccountController(_logger, _configuration);
             accountMod = new AccountModel();
+            loginMod = new LoginModel();
         }
 
         //class for us to generate random name strings to test our database writing/reading
@@ -74,12 +76,12 @@ namespace PantherPickupTesting
         [Test]
         public void CreateTest()
         {
-            accountMod.Name = RandomString(7)  + "TEST";
+            accountMod.Name = RandomString(7) + "TEST";
             accountMod.Password = "testPassword";
             accountMod.Email = "test@chapman.edu";
             accountMod.Grade = "sophomore";
             accountMod.Major = "software engineeringTest";
-            accountMod.IsPassenger = "True";
+            accountMod.IsPassenger = true;
             accountMod.Year = 2;
             _AccountController.Create(accountMod);
             bool dataAdded = false;
@@ -101,7 +103,58 @@ namespace PantherPickupTesting
             removeTestEntries();
 
             Assert.True(dataAdded);
-            
+
+        }
+
+        [Test]
+        public void isPasssengerModel()
+        {
+            accountMod.Name = RandomString(7) + "TEST";
+            accountMod.Password = "testPassword";
+            accountMod.Email = "test@chapman.edu";
+            accountMod.Grade = "sophomore";
+            accountMod.Major = "software engineeringTest";
+            accountMod.IsPassenger = false;
+            accountMod.Year = 2;
+            loginMod.Email = "test@chapman.edu";
+            loginMod.Password = "testPassword";
+            _AccountController.Create(accountMod);
+            bool answer = _AccountController.isPassenger(loginMod);
+            bool dataCorrect = false;
+            //read from our database to check name has been added to the table
+            using (var connection = new SqlConnection(_configuration.GetConnectionString("PantherPickup")))
+            {
+                //Selecting if passenger
+                SqlCommand command = new SqlCommand("SELECT isPassenger FROM person WHERE email = '" + loginMod.Email + "' AND password = '" + loginMod.Password + "'", connection);
+                command.Connection.Open();
+                var reader = command.ExecuteReader();
+
+                //if this reader executes, we know the name has been found in our database
+                while (reader.Read())
+                {
+                    //Gathering if passenger is true or not
+                    String test;
+                    test = Convert.ToString(reader["isPassenger"]);
+
+                    //Edge Case 1: User was set to passenger and was correctly identified as passenger
+                    if (test == "true")
+                    {
+                        dataCorrect = true;
+                        if (answer = dataCorrect)
+                        {
+                            Assert.True(dataCorrect);
+                        }
+                        
+                    }
+                    //Edge Case 2: User was set to passenger, but was not correctly identified as a passenger
+                    else if (test == "false")
+                    {
+                        dataCorrect = true;
+                        Assert.Fail();
+                    }
+                }
+            }
+            removeTestEntries();
         }
     }
 }
