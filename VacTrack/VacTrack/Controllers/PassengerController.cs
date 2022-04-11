@@ -80,5 +80,32 @@ namespace PantherPickup.Controllers
             return View(model);
         }
 
+        public ActionResult Calendar()
+        {
+            //probably should take in a ride request model
+            var model = new AccountModel();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
+                {
+                    SqlCommand command = new SqlCommand("SELECT * FROM person WHERE email = 'marietta@chapman.edu' ", connection);
+                    command.Connection.Open();
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        model.Name = reader["name"].ConvertFromDBVal<string>();
+                        model.Email = reader["email"].ConvertFromDBVal<string>();
+                        model.IsPassenger = reader["isPassenger"].ConvertFromDBVal<bool>();
+                        model.Major = reader["major"].ConvertFromDBVal<string>();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new ErrorViewModel { ErrorMessage = ex.Message });
+            }
+            return View(model);
+        }
+
     }
 }
