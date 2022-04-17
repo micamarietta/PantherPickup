@@ -2,20 +2,21 @@
     ViewData["Title"] = "Temp Home";
 }
 
-    <div class="container">
+<div class="container">
     <div class="row">
         <div class="col col-lg-12 col-xl-6">
              <h2>Welcome driver!</h2>
         </div>
-       <div class="col col-lg-12 col-xl-6">
-           <div class="text-center">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Driver" asp-action="Profile">Profile</a>
+       <div class="row">
+           <div class="col col-md-12 col-lg-6">
+               
             </div>
-        </div>
-        <div class="col col-lg-12 col-xl-6">
-           <div class="text-center">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Driver" asp-action="Calendar">Calendar</a>
-           </div>
+            <div class="col col-md-12 col-lg-6">
+               <div class="p-3 float-end">
+                    <a class="btn btn-primary" asp-area="" asp-controller="Driver" asp-action="Profile">Profile</a>
+                    <a class="btn btn-primary" asp-area="" asp-controller="Driver" asp-action="Calendar">Calendar</a>
+               </div>
+            </div>
         </div>
    
     <!--Google map-->
