@@ -223,27 +223,35 @@ function check_events(day, month, year) {
 var event_data = {
     "events": [
     {
-        "occasion": "Chapman University",
-        "invited_count": 5,
+        "occasion": "Disney Land @ 5pm",
+        "invited_count": 4,
         "year": 2022,
         "month": 4,
-        "day": 17,
+        "day": 22,
         "cancelled": false
     },
     {
-        "occasion": "Long Beach Airport",
+        "occasion": "LAX @ 1pm",
         "invited_count": 1,
         "year": 2022,
-        "month": 4,
-        "day": 20,
-        "cancelled": true
-    },
-        {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2020,
         "month": 5,
-        "day": 10,
+        "day": 3,
+        "cancelled": false
+        },
+        {
+            "occasion": "Orange Circle @ 8am",
+            "invited_count": 2,
+            "year": 2022,
+            "month": 5,
+            "day": 10,
+            "cancelled": false
+        },
+        {
+        "occasion": "John Wayne Airport @ 5am",
+        "invited_count": 2,
+        "year": 2022,
+        "month": 4,
+        "day": 21,
         "cancelled": true
     },
     {
