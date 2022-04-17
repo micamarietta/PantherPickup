@@ -68,6 +68,7 @@ namespace VacTrack.Controllers
                         model.Email = reader["email"].ConvertFromDBVal<string>();
                         model.IsPassenger = reader["isPassenger"].ConvertFromDBVal<bool>();
                         model.Major = reader["major"].ConvertFromDBVal<string>();
+                        model.Year = reader["year"].ConvertFromDBVal<int>();
                     }
                 }
             }
