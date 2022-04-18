@@ -10,20 +10,29 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Controllers\LocationController.cs" />
-    <Compile Remove="Controllers\PassengerController.cs" />
-    <Compile Remove="Controllers\PatientController.cs" />
-    <Compile Remove="Controllers\VaccinationLocationController.cs" />
-    <Compile Remove="Controllers\VaccineController.cs" />
-    <Compile Remove="Models\Passenger\PassengerModel.cs" />
+    <Compile Remove="Views\RideRequest\**" />
+    <Content Remove="Views\RideRequest\**" />
+    <EmbeddedResource Remove="Views\RideRequest\**" />
+    <None Remove="Views\RideRequest\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\PatientController.cs" />
+    <Compile Remove="Controllers\RideRequestController.cs" />
+    <Compile Remove="Controllers\VaccinationLocationController.cs" />
+    <Compile Remove="Controllers\VaccineController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Account\tempIndex - Copy.cshtml" />
     <Content Remove="Views\Passenger\Create.cshtml" />
     <Content Remove="Views\Passenger\Delete.cshtml" />
     <Content Remove="Views\Passenger\Details.cshtml" />
     <Content Remove="Views\Passenger\Edit.cshtml" />
-    <Content Remove="Views\Passenger\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Account\Calendar.js" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
@@ -32,15 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="Views\Vaccine\" />
     <Folder Include="Models\Vaccine\" />
     <Folder Include="Models\Patient\" />
-    <Folder Include="Views\Patient\" />
     <Folder Include="Models\Location\" />
     <Folder Include="Views\Location\" />
     <Folder Include="Models\VaccinationLocation\" />
-    <Folder Include="Views\VaccinationLocation\" />
-    <Folder Include="Views\Passenger\" />
     <Folder Include="Models\Common\" />
   </ItemGroup>
 </Project>
