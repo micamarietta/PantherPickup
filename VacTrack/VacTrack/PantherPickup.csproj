@@ -10,15 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Views\RideRequest\**" />
-    <Content Remove="Views\RideRequest\**" />
-    <EmbeddedResource Remove="Views\RideRequest\**" />
-    <None Remove="Views\RideRequest\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Remove="Controllers\PatientController.cs" />
-    <Compile Remove="Controllers\RideRequestController.cs" />
     <Compile Remove="Controllers\VaccinationLocationController.cs" />
     <Compile Remove="Controllers\VaccineController.cs" />
   </ItemGroup>
@@ -47,5 +39,8 @@
     <Folder Include="Views\Location\" />
     <Folder Include="Models\VaccinationLocation\" />
     <Folder Include="Models\Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Views\RideRequest\Index.cshtml" />
   </ItemGroup>
 </Project>
