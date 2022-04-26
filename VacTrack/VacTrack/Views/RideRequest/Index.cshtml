@@ -1,26 +1,128 @@
 ﻿@{
     ViewData["Title"] = "Ride Request";
-    }
+}
 
-    <h1>Make the ride request</h1>
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="text-white bg-danger mb-3" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mbMySqlTransaction trans = conn.BeginTransaction();;md-5">Create a Ride Request</h3>
+                        <form action="@Url.Action("Create", "RideRequest")" method="post" class="row">
 
-    <select class="form-select" aria-label="Select Driver">
-     <option selected>Open this select menu</option>
-     <option value="1">One</option>
-     <option value="2">Two</option>
-     <option value="3">Three</option>
-    </select>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
 
-    <select class="form-select" aria-label="Select Pick-up Location">
-     <option selected>Open this select menu</option>
-     <option value="1">One</option>
-     <option value="2">Two</option>
-     <option value="3">Three</option>
-    </select>
+                                    <h6 class="mb-2 pb-1">Account Type: </h6>
 
-    <select class="form-select" aria-label="Destination">
-     <option selected>Open this select menu</option>
-     <option value="1">One</option>
-     <option value="2">Two</option>
-     <option value="3">Three</option>
-    </select>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                               type="radio"
+                                               name="numPassengers"
+                                               id="NumPassengers"
+                                               value=1
+                                               checked />
+                                        <label class="form-check-label" for="numPassengers">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                               type="radio"
+                                               name="numPassengers"
+                                               id="NumPassengers"
+                                               value=2 />
+                                        <label class="form-check-label" for="numPassengers">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                               type="radio"
+                                               name="numPassengers"
+                                               id="NumPassengers"
+                                               value=3 />
+                                        <label class="form-check-label" for="numPassengers">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                               type="radio"
+                                               name="numPassengers"
+                                               id="NumPassengers"
+                                               value=4 />
+                                        <label class="form-check-label" for="numPassengers">4</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label select-label">Select Driver</label>
+                                    <div class="row">
+                                        <div class="col-12">
+
+                                            <select name="driverID" class="select form-control-lg">
+                                                <option disabled>Choose option</option>
+                                                <option value="1">Chris</option>
+                                                <option value="2">Jessie</option>
+                                                <option value="3">Mica</option>
+                                                <option value="4">Maddy</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4 pb-2">
+
+                                    <label class="form-label select-label">Select Pick-Up Destination</label>
+                                    <div class="row">
+                                        <div class="col-12">
+
+                                            <select name="pickUpDest" class="select form-control-lg">
+                                                <option disabled>Choose option</option>
+                                                <option value="1">Chapman University</option>
+                                                <option value="2">DisneyLand</option>
+                                                <option value="3">John Wayne Airport</option>
+                                                <option value="4">Orange Circle</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 mb-4 pb-2">
+
+                                    <label class="form-label select-label">Select Drop Off Destination</label>
+                                    <div class="row">
+                                        <div class="col-12">
+
+                                            <select name="dropOffDest" class="select form-control-lg">
+                                                <option disabled>Choose option</option>
+                                                <option value="Chapman University">Chapman University</option>
+                                                <option value="DisneyLand">DisneyLand</option>
+                                                <option value="John Wayne Airport">John Wayne Airport</option>
+                                                <option value="Orange Circle">Orange Circle</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="mt-4 pt-2">
+                                <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

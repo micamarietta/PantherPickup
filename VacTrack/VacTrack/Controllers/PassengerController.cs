@@ -8,7 +8,6 @@ using Microsoft.Extensions.Logging;
 using PantherPickup.Models;
 using PantherPickup.Models.Account;
 using PantherPickup.Utilities;
-using PantherPickup.Models.Patient;
 using PantherPickup.Models.Passenger;
 using PantherPickup.Models.VaccinationLocation;
 
@@ -38,6 +37,7 @@ namespace PantherPickup.Controllers
                     while (reader.Read())
                     {
                         var item = new AccountModel();
+                        item.pID = reader["pID"].ConvertFromDBVal<int>();
                         item.Name = reader["name"].ConvertFromDBVal<string>();
                         item.Email = reader["email"].ConvertFromDBVal<string>();
                         item.IsPassenger = reader["isPassenger"].ConvertFromDBVal<bool>();
