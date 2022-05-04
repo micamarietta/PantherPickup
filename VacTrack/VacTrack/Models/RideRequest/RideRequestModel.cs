@@ -14,7 +14,7 @@ namespace PantherPickup.Models.RideRequest
         public bool IsCancelled { get; set; }
         public int NumPassengers { get; set; }
         public string PickupLoc { get; set; }
-        public int DropOffLoc { get; set; }
+        public string DropOffLoc { get; set; }
         public bool IsCompleted { get; set; }
 
     }

@@ -37,7 +37,8 @@ namespace PantherPickup.Controllers
                     while (reader.Read())
                     {
                         var item = new AccountModel();
-                        item.pID = passengerID;
+                        item.pID = reader["pID"].ConvertFromDBVal<int>();
+                        passengerID = item.pID;
                         item.Name = reader["name"].ConvertFromDBVal<string>();
                         item.Email = reader["email"].ConvertFromDBVal<string>();
                         item.IsPassenger = reader["isPassenger"].ConvertFromDBVal<bool>();
