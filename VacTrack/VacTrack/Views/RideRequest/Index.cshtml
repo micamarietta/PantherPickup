@@ -10,11 +10,10 @@
                     <div class="card-body p-4 p-md-5">
                         <h3 class="mb-4 pb-2 pb-md-0 mbMySqlTransaction trans = conn.BeginTransaction();;md-5">Create a Ride Request</h3>
                         <form action="@Url.Action("Create", "RideRequest")" method="post" class="row">
-
                             <div class="row">
                                 <div class="col-md-6 mb-4">
 
-                                    <h6 class="mb-2 pb-1">Account Type: </h6>
+                                    <h6 class="mb-2 pb-1">Number of Passengers: </h6>
 
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input"
@@ -74,6 +73,7 @@
 
                                 </div>
 
+
                             </div>
 
 
@@ -116,7 +116,7 @@
                             </div>
 
                             <div class="mt-4 pt-2">
-                                <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
+                                <input class="btn btn-primary btn-lg" type="submit" value="Submit" asp-controller="Passenger" asp-action="Index" />
                             </div>
 
                         </form>

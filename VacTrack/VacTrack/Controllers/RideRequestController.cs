@@ -16,7 +16,7 @@ namespace PantherPickup.Controllers
     {
         private readonly ILogger<RideRequestController> _logger;
         private readonly IConfiguration Configuration;
-        public int passengerID = 0;
+        public static int passengerID = 0;
 
         public RideRequestController(ILogger<RideRequestController> logger, IConfiguration _configuration)
         {
@@ -31,7 +31,7 @@ namespace PantherPickup.Controllers
             {
                 using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
                 {
-                    SqlCommand command = new SqlCommand("SELECT * FROM person WHERE email = 'marietta@chapman.edu' ", connection);
+                    SqlCommand command = new SqlCommand("SELECT * FROM person WHERE email = 'marietta@chapman.edu' AND password = 'newPass'", connection);
                     command.Connection.Open();
                     var reader = command.ExecuteReader();
                     while (reader.Read())
@@ -46,6 +46,7 @@ namespace PantherPickup.Controllers
 
                         model.Add(item);
                     }
+                    
                 }
             }
             catch (Exception ex)
@@ -56,7 +57,7 @@ namespace PantherPickup.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(RideRequestModel model)
+        public ActionResult Create(RideRequestModel model, AccountModel accModel)
         {
             var conn = new SqlConnection(Configuration.GetConnectionString("PantherPickup"));
             conn.Open();
