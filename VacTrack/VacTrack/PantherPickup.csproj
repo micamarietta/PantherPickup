@@ -21,6 +21,8 @@
     <Content Remove="Views\Passenger\Delete.cshtml" />
     <Content Remove="Views\Passenger\Details.cshtml" />
     <Content Remove="Views\Passenger\Edit.cshtml" />
+    <Content Remove="Views\Passenger\RideRate - Copy.cshtml" />
+    <Content Remove="Views\RideRequest\RideRate.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,6 +42,8 @@
     <Folder Include="Models\Common\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Views\Driver\RideRate.cshtml" />
+    <None Include="Views\Passenger\RideRate.cshtml" />
     <None Include="Views\RideRequest\Index.cshtml" />
   </ItemGroup>
 </Project>

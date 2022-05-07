@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Account";
+}
+
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="text-white bg-danger mb-3" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mbMySqlTransaction trans = conn.BeginTransaction();;md-5">Rate your Ride</h3>
+                        <form action="@Url.Action("RideRate", "Driver")" method="post" class="row">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+
+                                    <h6 class="mb-2 pb-1">Rate your passenger on a scale from 1-5: </h6>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                               type="radio"
+                                               name="lastRating"
+                                               id="LastRating"
+                                               value=1
+                                               checked />
+                                        <label class="form-check-label" for="lastRating">1</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                               type="radio"
+                                               name="lastRating"
+                                               id="LastRating"
+                                               value=2 />
+                                        <label class="form-check-label" for="lastRating">2</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                               type="radio"
+                                               name="lastRating"
+                                               id="LastRating"
+                                               value=3 />
+                                        <label class="form-check-label" for="lastRating">3</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                               type="radio"
+                                               name="lastRating"
+                                               id="LastRating"
+                                               value=4 />
+                                        <label class="form-check-label" for="lastRating">4</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                               type="radio"
+                                               name="lastRating"
+                                               id="LastRating"
+                                               value=5 />
+                                        <label class="form-check-label" for="lastRating">5</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 pt-2">
+                                <input class="btn btn-primary btn-lg" type="submit" value="Submit" asp-controller="Driver" asp-action="Index" />
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

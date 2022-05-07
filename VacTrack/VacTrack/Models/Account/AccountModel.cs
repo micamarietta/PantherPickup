@@ -17,7 +17,8 @@ namespace PantherPickup.Models.Account
         public string Major { get; set; }
         public int Year { get; set; }
         public int NumRides { get; set; }
-        public float Rating { get; set; }
+        public int LastRating { get; set; }
+        public float AvgRating { get; set; }
         public bool IsPassenger { get; set; }
 
     }

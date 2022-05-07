@@ -106,6 +106,14 @@ namespace VacTrack.Controllers
             return View(model);
         }
 
+        //driver is rating the passenger at the end of the ride
+        public ActionResult RideRate()
+        {
+            return View();
+        }
+
 
     }
+
+
 }

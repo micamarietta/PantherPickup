@@ -108,5 +108,11 @@ namespace PantherPickup.Controllers
             return View(model);
         }
 
+        //passenger is rating the driver at the end of the ride
+        public ActionResult RideRate()
+        {
+            return View();
+        }
+
     }
 }
