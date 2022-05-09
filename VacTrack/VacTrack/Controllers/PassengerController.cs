@@ -9,6 +9,7 @@ using PantherPickup.Models;
 using PantherPickup.Models.Account;
 using PantherPickup.Utilities;
 using PantherPickup.Models.Passenger;
+using PantherPickup.Models.RideRequest;
 using PantherPickup.Models.VaccinationLocation;
 
 namespace PantherPickup.Controllers
@@ -24,20 +25,25 @@ namespace PantherPickup.Controllers
             Configuration = _configuration;
         }
 
+        public static int passengerID = 0;
+
+        //pass in rideRequests for that specific person
         public ActionResult Index()
         {
             var model = new List<AccountModel>();
+            var rideReqModel = new List<RideRequestModel>();
             try
             {
                 using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
                 {
-                    SqlCommand command = new SqlCommand("SELECT * FROM person WHERE email = 'marietta@chapman.edu' ", connection);
+                    SqlCommand command = new SqlCommand("SELECT * FROM person WHERE email = 'marietta@chapman.edu' AND password = 'newPass'", connection);
                     command.Connection.Open();
                     var reader = command.ExecuteReader();
                     while (reader.Read())
                     {
                         var item = new AccountModel();
                         item.pID = reader["pID"].ConvertFromDBVal<int>();
+                        passengerID = item.pID;
                         item.Name = reader["name"].ConvertFromDBVal<string>();
                         item.Email = reader["email"].ConvertFromDBVal<string>();
                         item.IsPassenger = reader["isPassenger"].ConvertFromDBVal<bool>();
@@ -46,12 +52,30 @@ namespace PantherPickup.Controllers
                         model.Add(item);
                     }
                 }
+
+                using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
+                {
+                   
+                    SqlCommand command = new SqlCommand("SELECT * FROM rideRequest WHERE passengerId = " + passengerID + "AND isCancelled = 0 AND isCompleted = 0", connection);
+                    command.Connection.Open();
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        var item = new RideRequestModel();
+                        item.PickupLoc = reader["pickUpDest"].ConvertFromDBVal<string>();
+                        item.DropOffLoc = reader["dropOffDest"].ConvertFromDBVal<string>();
+                        item.DriverID = reader["driverId"].ConvertFromDBVal<int>();
+                        item.NumPassengers = reader["numPassengers"].ConvertFromDBVal<int>();
+
+                        rideReqModel.Add(item);
+                    }
+                }
             }
             catch (Exception ex)
             {
                 return View("Error", new ErrorViewModel { ErrorMessage = ex.Message });
             }
-            return View();
+            return View(rideReqModel);
         }
 
         public ActionResult Profile()
@@ -109,8 +133,12 @@ namespace PantherPickup.Controllers
         }
 
         //passenger is rating the driver at the end of the ride
-        public ActionResult RideRate()
+        public ActionResult RideRate(RideRequestModel model)
         {
+            //grab the driver from the rideRequest with PID defined in Ride Request model
+            //populate the lastRating var on the driver with that PID
+            //create an array with rideIDs and populate list on view with those ids and their info
+
             return View();
         }
 
