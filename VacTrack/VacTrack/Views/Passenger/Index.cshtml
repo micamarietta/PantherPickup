@@ -40,20 +40,44 @@
      <table class="table">
     <thead>
         <tr>
+            <td>Driver</td>
             <td>Drop off location</td>
+            <td>Pick up location</td>
+            <td>Number of passengers</td>
             <td></td>
         </tr>
     </thead>
     @foreach (var item in Model)
     {
 <tr>
+    @if(@item.DriverID == 1)
+        {
+            <td>Jessie</td>
+        }
+    @if(@item.DriverID == 2)
+        {
+            <td>Chris</td>
+        }
+    @if(@item.DriverID == 3)
+        {
+            <td>Mica</td>
+        }
+    @if(@item.DriverID == 4)
+        {
+            <td>Maddie</td>
+        }
+
     <td>@item.DropOffLoc</td>
+    <td>@item.PickupLoc</td>
+    <td>@item.NumPassengers</td>
+    <a href="@Url.Action("Index", "Passenger")" class="btn btn-danger" role="button">Cancel Ride</a>
+    
 </tr>
     }
 </table>
 
 
-
+<!--
 
     <div id="accordion">
   <div class="card">
@@ -112,3 +136,6 @@
     </div>
   </div>
 </div>
+
+-->
+
