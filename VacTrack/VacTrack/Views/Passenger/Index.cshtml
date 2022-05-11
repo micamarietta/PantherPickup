@@ -34,7 +34,6 @@
 
     <div class="text-center">
         <a class="btn btn-danger" asp-area="" asp-controller="RideRequest" asp-action="Index">Create Ride Request</a>
-         <a class="btn btn-danger" asp-area="" asp-controller="Passenger" asp-action="RideRate">Start a ride</a>
     </div>
 
      <table class="table">
@@ -70,8 +69,10 @@
     <td>@item.DropOffLoc</td>
     <td>@item.PickupLoc</td>
     <td>@item.NumPassengers</td>
-    <a href="@Url.Action("Index", "Passenger")" class="btn btn-danger" role="button">Cancel Ride</a>
-    
+    <td>
+        <a class="btn btn-danger" asp-area="" asp-controller="Passenger" asp-action="Index">Cancel</a>
+        <a class="btn btn-danger" asp-area="" asp-controller="Passenger" asp-action="RideRate">Start Ride</a>
+    </td>    
 </tr>
     }
 </table>
