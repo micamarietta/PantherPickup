@@ -8,6 +8,7 @@ namespace PantherPickup.Models.RideRequest
             
         }
 
+        public int RideID { get; set; }
         public int PassengerID { get; set; }
         public int DriverID { get; set; }
         public string Date { get; set; }

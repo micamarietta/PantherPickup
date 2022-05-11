@@ -70,7 +70,7 @@
     <td>@item.PickupLoc</td>
     <td>@item.NumPassengers</td>
     <td>
-        <a class="btn btn-danger" asp-area="" asp-controller="Passenger" asp-action="Index">Cancel</a>
+        <a class="btn btn-danger" asp-area="" asp-controller="Passenger" asp-action="CancelRide" asp-route-id=@item.RideID>Cancel</a>
         <a class="btn btn-danger" asp-area="" asp-controller="Passenger" asp-action="RideRate">Start Ride</a>
     </td>    
 </tr>

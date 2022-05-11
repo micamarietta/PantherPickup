@@ -62,6 +62,7 @@ namespace PantherPickup.Controllers
                     while (reader.Read())
                     {
                         var item = new RideRequestModel();
+                        item.RideID = reader["ridesID"].ConvertFromDBVal<int>();
                         item.PickupLoc = reader["pickUpDest"].ConvertFromDBVal<string>();
                         item.DropOffLoc = reader["dropOffDest"].ConvertFromDBVal<string>();
                         item.DriverID = reader["driverId"].ConvertFromDBVal<int>();
@@ -141,24 +142,17 @@ namespace PantherPickup.Controllers
 
             return View();
         }
-        /*
-        public ActionResult CancelRide(RideRequestModel model)
+
+        public ActionResult CancelRide(int ID)
         {
             using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
             {
-                SqlCommand command = new SqlCommand("SELECT * FROM person WHERE email = 'marietta@chapman.edu' ", connection);
+                SqlCommand command = new SqlCommand("UPDATE rideRequest SET isCancelled = 1 WHERE ridesId = " + ID, connection);
                 command.Connection.Open();
                 var reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    model.Name = reader["name"].ConvertFromDBVal<string>();
-                    model.Email = reader["email"].ConvertFromDBVal<string>();
-                    model.IsPassenger = reader["isPassenger"].ConvertFromDBVal<bool>();
-                    model.Major = reader["major"].ConvertFromDBVal<string>();
-                }
             }
+            return RedirectToAction("Index");
         }
-        */
 
     }
 }
