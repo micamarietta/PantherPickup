@@ -27,12 +27,67 @@
         </div>
     </div>
 
-    <div class="text-center">
-         <a class="btn btn-danger" asp-area="" asp-controller="Driver" asp-action="RideRate">Rate a ride</a>
-    </div>
-
     <!--Google Maps-->
 
+    <div class="text-center">
+        <a class="btn btn-danger" asp-area="" asp-controller="Driver" asp-action="RideRate">Rate a ride</a>
+    </div>
+
+    <table class="table" id="myTable">
+    <thead>
+        <tr>
+            <td>Passenger</td>
+            <td>Drop off location</td>
+            <td>Pick up location</td>
+            <td>Number of passengers</td>
+            <td>Date/Time</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tr id="1">
+        <td>Jessie</td>
+        <td>Chapman University</td>
+        <td>Disney Land</td>
+        <td>3</td>
+        <td>5/18/22 - 8am</td>
+        <td>
+            <button class="btn btn-danger" onclick="myFunction(1)">Decline</button>
+            <a class="btn btn-danger" asp-area="" asp-controller="Driver" asp-action="RideRate">Start Ride</a>
+        </td> 
+    <tr>
+    <tr id="2">
+        <td>Dave</td>
+        <td>John Wayne Airport</td>
+        <td>Chapman University</td>
+        <td>1</td>
+        <td>5/25/22 - 1pm</td>
+        <td>
+            <button class="btn btn-danger" onclick="myFunction(2)">Decline</button>
+            <a class="btn btn-danger" asp-area="" asp-controller="Driver" asp-action="RideRate">Start Ride</a>
+        </td> 
+    </tr>
+        <tr id="3">
+        <td>Joe</td>
+        <td>Orange Circle</td>
+        <td>Chapman University</td>
+        <td>2</td>
+        <td>6/1/22 - 2:30pm</td>
+        <td>
+            <button class="btn btn-danger" onclick="myFunction(3)">Decline</button>
+            <a class="btn btn-danger" asp-area="" asp-controller="Driver" asp-action="RideRate">Start Ride</a>
+        </td> 
+    </tr>
+    </table>
+
+    <!--Function to delete rows if driver declines a ride-->
+    <script>
+    function myFunction(id) {
+        document.getElementById("myTable").deleteRow(id);
+    }
+    </script>
+
+
+<!-- old ui version for driver
     <div id="accordion">
   <div class="card">
     <div class="card-header" id="headingOne">
@@ -92,3 +147,4 @@
     </div>
   </div>
 </div>
+-->

@@ -11,6 +11,7 @@ using OfficeOpenXml.Table;
 using PantherPickup.Models.Account;
 using PantherPickup.Utilities;
 using PantherPickup.Models;
+using PantherPickup.Models.RideRequest;
 namespace VacTrack.Controllers
 {
     public class DriverController : Controller
@@ -106,12 +107,13 @@ namespace VacTrack.Controllers
             return View(model);
         }
 
+
         //driver is rating the passenger at the end of the ride
-        public ActionResult RideRate()
+        public ActionResult RideRate(RideRequestModel model)
         {
+           
             return View();
         }
-
 
     }
 
