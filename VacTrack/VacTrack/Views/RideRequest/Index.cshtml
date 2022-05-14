@@ -115,12 +115,22 @@
                                 </div>
                             </div>
 
-                            <div class="mt-4 pt-2">
-                                <input class="btn btn-primary btn-lg" type="submit" value="Submit"/>
-                            </div>
+                            <div class="row">
+                                <label class="form-label select-label">Select Date and Time</label>
+                                <div class="col col-12">
+                                     <input type="datetime-local"
+                                            name="Date"
+                                            id="Date"
+                                            class="form-control-lg" />
 
-                            <div class="mt-4 pt-2">
-                                <a class="btn btn-primary" asp-area="" asp-controller="Passenger" asp-action="Index">Home</a>
+                                </div>
+                            </div>
+                           
+                            <div class="row">
+                                <div class="col col-12 mt-4 pt-2">
+                                     <input class="btn btn-primary btn-lg" type="submit" value="Submit"/>
+                                     <a class="btn btn-secondary btn-lg" asp-area="" asp-controller="Passenger" asp-action="Index">Cancel</a>
+                                </div>
                             </div>
 
                         </form>

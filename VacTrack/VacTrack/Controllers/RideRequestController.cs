@@ -71,7 +71,7 @@ namespace PantherPickup.Controllers
                 command.ExecuteNonQuery();
                 trans.Commit();
                 //redirect back to the list
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Passenger");
             }
             catch (Exception ex)
             {

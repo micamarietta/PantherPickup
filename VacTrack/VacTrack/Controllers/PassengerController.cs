@@ -64,6 +64,7 @@ namespace PantherPickup.Controllers
                         var item = new RideRequestModel();
                         item.RideID = reader["ridesID"].ConvertFromDBVal<int>();
                         item.PickupLoc = reader["pickUpDest"].ConvertFromDBVal<string>();
+                        item.Date = reader["dayTime"].ConvertFromDBVal<DateTime>();
                         item.DropOffLoc = reader["dropOffDest"].ConvertFromDBVal<string>();
                         item.DriverID = reader["driverId"].ConvertFromDBVal<int>();
                         item.NumPassengers = reader["numPassengers"].ConvertFromDBVal<int>();
