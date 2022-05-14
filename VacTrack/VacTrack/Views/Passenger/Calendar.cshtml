@@ -4,6 +4,12 @@
 			// TODO: figure out how to call new_event_json to add new events
 			// TODO: call an API to get event data from the database
 			//new_event_json("Easter", 13, new Date(2022, 4, 17), 1);
+			$.get( "../api/RideRequestApi?passengerID=8", function( data ) {
+			  loadCalendar(data);
+			});
+
+			
+			
 		});
 	</script>
 }

@@ -1,9 +1,10 @@
-(function($) {
 
 	"use strict";
 
 	// Setup the calendar with the current date
-$(document).ready(function(){
+function loadCalendar(events) {
+    event_data.events = events;
+
     var date = new Date();
     var today = date.getDate();
     // Set click handlers for DOM elements
@@ -16,14 +17,13 @@ $(document).ready(function(){
     init_calendar(date);
     var events = check_events(today, date.getMonth()+1, date.getFullYear());
     show_events(events, months[date.getMonth()], today);
-});
+}
 
 // Initialize the calendar by appending the HTML dates
 function init_calendar(date) {
     $(".tbody").empty();
     $(".events-container").empty();
     var calendar_days = $(".tbody");
-    debugger;
     var month = date.getMonth();
     var year = date.getFullYear();
     var day_count = days_in_month(month, year);
@@ -221,99 +221,7 @@ function check_events(day, month, year) {
 
 // Given data for events in JSON format
 var event_data = {
-    "events": [
-    {
-        "occasion": "Disney Land @ 5pm",
-        "invited_count": 4,
-        "year": 2022,
-        "month": 4,
-        "day": 22,
-        "cancelled": false
-    },
-    {
-        "occasion": "LAX @ 1pm",
-        "invited_count": 1,
-        "year": 2022,
-        "month": 5,
-        "day": 3,
-        "cancelled": false
-        },
-        {
-            "occasion": "Orange Circle @ 8am",
-            "invited_count": 2,
-            "year": 2022,
-            "month": 5,
-            "day": 10,
-            "cancelled": false
-        },
-        {
-        "occasion": "John Wayne Airport @ 5am",
-        "invited_count": 2,
-        "year": 2022,
-        "month": 4,
-        "day": 21,
-        "cancelled": true
-    },
-    {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2020,
-        "month": 5,
-        "day": 10
-    },
-        {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2020,
-        "month": 5,
-        "day": 10,
-        "cancelled": true
-    },
-    {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2020,
-        "month": 5,
-        "day": 10
-    },
-        {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2020,
-        "month": 5,
-        "day": 10,
-        "cancelled": true
-    },
-    {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2020,
-        "month": 5,
-        "day": 10
-    },
-        {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2020,
-        "month": 5,
-        "day": 10,
-        "cancelled": true
-    },
-    {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2020,
-        "month": 5,
-        "day": 10
-    },
-    {
-        "occasion": " Test Event",
-        "invited_count": 120,
-        "year": 2020,
-        "month": 5,
-        "day": 11
-    }
-    ]
+    "events": []
 };
 
 const months = [ 
@@ -330,5 +238,3 @@ const months = [
     "November", 
     "December" 
 ];
-
-})(jQuery);
