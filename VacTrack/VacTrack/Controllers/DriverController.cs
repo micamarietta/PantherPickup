@@ -108,11 +108,101 @@ namespace VacTrack.Controllers
         }
 
 
-        //driver is rating the passenger at the end of the ride
-        public ActionResult RideRate(RideRequestModel model)
+        [HttpGet]
+        public ActionResult RideRate()
         {
-           
             return View();
+        }
+
+        //passenger is rating the driver at the end of the ride
+        [HttpPost]
+        public ActionResult RideRate(int ID, RideRequestModel model)
+        {
+            //update ride to be completed 
+            using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
+            {
+                SqlCommand command = new SqlCommand("UPDATE rideRequest SET isCompleted = 1, passengerRating = " + model.PassengerRate + " WHERE ridesId = " + ID, connection);
+                command.Connection.Open();
+                var reader = command.ExecuteNonQuery();
+            }
+
+            int passengerId = 0;
+
+            //grab the driver from the ride request, pass it in to our calculation for rating
+            using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
+            {
+                SqlCommand command3 = new SqlCommand("SELECT passengerId FROM rideRequest WHERE ridesId = " + ID, connection);
+                command3.Connection.Open();
+                var reader = command3.ExecuteReader();
+                while (reader.Read())
+                {
+                    passengerId = reader["passengerId"].ConvertFromDBVal<int>();
+                }
+            }
+
+            //use the UpdatingRating method to calculate the aggregate for avg rating
+            UpdateRating(passengerId);
+            return RedirectToAction("Index", "Driver");
+        }
+
+        public ActionResult StartRide(int ID)
+        {
+            //return the correct view for the ride commencing
+            var model = new RideRequestModel();
+
+            using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
+            {
+                SqlCommand command = new SqlCommand("SELECT * FROM rideRequest WHERE ridesId = " + ID, connection);
+                command.Connection.Open();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    model.RideID = reader["ridesID"].ConvertFromDBVal<int>();
+                    model.PickupLoc = reader["pickUpDest"].ConvertFromDBVal<string>();
+                    model.Date = reader["dayTime"].ConvertFromDBVal<DateTime>();
+                    model.DropOffLoc = reader["dropOffDest"].ConvertFromDBVal<string>();
+                    model.DriverID = reader["driverId"].ConvertFromDBVal<int>();
+                    model.NumPassengers = reader["numPassengers"].ConvertFromDBVal<int>();
+                }
+            }
+
+            return View(model);
+        }
+
+        public ActionResult CancelRide(int ID)
+        {
+            using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
+            {
+                SqlCommand command = new SqlCommand("UPDATE rideRequest SET isCancelled = 1 WHERE ridesId = " + ID, connection);
+                command.Connection.Open();
+                var reader = command.ExecuteReader();
+            }
+            return RedirectToAction("Index");
+        }
+
+        public void UpdateRating(int passengerId)
+        {
+            int avgRating = 0;
+
+            //select all rides with specific driver to generate aggregate of average rides
+            using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
+            {
+                SqlCommand command = new SqlCommand("SELECT AVG(passengerRating) as averageRating FROM rideRequest WHERE passengerId = " + passengerId, connection);
+                command.Connection.Open();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    avgRating = reader["averageRating"].ConvertFromDBVal<int>();
+                }
+            }
+
+            using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
+            {
+                SqlCommand command = new SqlCommand("UPDATE person SET rating = " + avgRating + "WHERE pID = " + passengerId, connection);
+                command.Connection.Open();
+                var reader = command.ExecuteNonQuery();
+            }
+
         }
 
     }

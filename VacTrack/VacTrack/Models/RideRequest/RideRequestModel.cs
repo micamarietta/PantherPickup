@@ -18,5 +18,9 @@ namespace PantherPickup.Models.RideRequest
         public string DropOffLoc { get; set; }
         public bool IsCompleted { get; set; }
 
+        public int PassengerRate { get; set; }
+
+        public int DriverRate { get; set; }
+
     }
 }

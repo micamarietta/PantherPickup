@@ -1,19 +1,11 @@
-﻿@{
-    ViewData["Title"] = "Passengers";
-    }
+﻿@model PantherPickup.Models.RideRequest.RideRequestModel
 
-    <!---- passenger page-->
-
-    <div class="row">
-        <div class="col col-6">
-             <h2>Welcome passenger! </h2>
-        </div>
-        <div class="col col-6">
-               
-            <div class="p-3 float-end">
-                <a class="btn btn-primary" asp-area="" asp-controller="Passenger" asp-action="Profile">Profile</a>
-                <a class="btn btn-primary" asp-area="" asp-controller="Passenger" asp-action="Calendar">Calendar</a>
-            </div>
+<div class="row">
+    <div class="col col-6">
+        <h1>Ride in Progress</h1>
+             <h2> To: @Model.DropOffLoc</h2>
+             <h2> From: @Model.PickupLoc</h2>
+             
         </div>
    </div>
 
@@ -27,56 +19,18 @@
         </div>
     </div>
 
-    <div class="row">
-    <div class="text-center col col-12 p-4">
-        <a class="btn btn-danger" asp-area="" asp-controller="RideRequest" asp-action="Index">Create Ride Request</a>
-    </div>
+    <div class = "row text-center">
+        <label> Once the ride has been completed, press "I've arrived"!</label>
     </div>
 
+    <div class="row text-center">
+        <div class="col col-12 p-4">
+            <a class="btn btn-danger" asp-controller="Driver" asp-action="RideRate"asp-route-id=@Model.RideID>I've Arrived</a>
+        </div>
 
-     <table class="table">
-    <thead>
-        <tr>
-            <td>Driver</td>
-            <td>Date and time</td>
-            <td>Drop off location</td>
-            <td>Pick up location</td>
-            <td>Number of passengers</td>
-            <td></td>
-        </tr>
-    </thead>
-    @foreach (var item in Model)
-    {
-<tr>
-    @if(@item.DriverID == 1)
-        {
-            <td>Jessie</td>
-        }
-    @if(@item.DriverID == 2)
-        {
-            <td>Chris</td>
-        }
-    @if(@item.DriverID == 3)
-        {
-            <td>Mica</td>
-        }
-    @if(@item.DriverID == 4)
-        {
-            <td>Maddie</td>
-        }
+    </div>
 
-    <td>@item.Date</td>
-    <td>@item.DropOffLoc</td>
-    <td>@item.PickupLoc</td>
-    <td>@item.NumPassengers</td>
-    <td>
-        <a class="btn btn-danger" asp-area="" asp-controller="Passenger" asp-action="CancelRide" asp-route-id=@item.RideID>Cancel</a>
-        <a class="btn btn-danger" asp-area="" asp-controller="Passenger" asp-action="StartRide" asp-route-id=@item.RideID>Start Ride</a>
-    </td>    
-</tr>
-    }
-</table>
-
+  
 
 <!--
 
