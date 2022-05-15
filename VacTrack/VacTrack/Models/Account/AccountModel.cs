@@ -19,5 +19,7 @@ namespace PantherPickup.Models.Account
         public int NumRides { get; set; }
         public bool IsPassenger { get; set; }
 
+        public int Rating { get; set; }
+
     }
 }
