@@ -11,6 +11,8 @@ using OfficeOpenXml.Table;
 using PantherPickup.Models.Account;
 using PantherPickup.Models;
 using PantherPickup.Utilities;
+using Microsoft.AspNetCore.Http;
+
 namespace VacTrack.Controllers
 {
     public class AccountController : Controller
@@ -98,6 +100,8 @@ namespace VacTrack.Controllers
                     var reader = command.ExecuteReader();
                     while (reader.Read())
                     {
+                        HttpContext.Session.SetString("UserEmail", model.Email);
+
                         if (isPassenger(model))
                         {
 
