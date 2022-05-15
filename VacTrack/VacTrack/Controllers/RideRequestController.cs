@@ -31,7 +31,7 @@ namespace PantherPickup.Controllers
             {
                 using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
                 {
-                    SqlCommand command = new SqlCommand("SELECT * FROM person WHERE email = 'marietta@chapman.edu' AND password = 'newPass'", connection);
+                    SqlCommand command = new SqlCommand(String.Format("SELECT * FROM person WHERE email = '{0}'", HttpContext.Session.GetString("UserEmail")), connection);
                     command.Connection.Open();
                     var reader = command.ExecuteReader();
                     while (reader.Read())
