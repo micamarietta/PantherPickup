@@ -29,7 +29,7 @@ namespace PantherPickup.Controllers
             var events = new List<Dictionary<string, object>>();
             using (SqlConnection connection = new SqlConnection(Configuration.GetConnectionString("PantherPickup")))
             {
-                SqlCommand command = new SqlCommand("SELECT * FROM rideRequest WHERE passengerId = " + passengerID + "AND isCancelled = 0 AND isCompleted = 0", connection);
+                SqlCommand command = new SqlCommand("SELECT * FROM rideRequest WHERE passengerId = (SELECT pId FROM person WHERE email = '" + HttpContext.Session.GetString("UserEmail") + "' ) AND isCancelled = 0 AND isCompleted = 0", connection);
                 command.Connection.Open();
                 var reader = command.ExecuteReader();
                 while (reader.Read())
