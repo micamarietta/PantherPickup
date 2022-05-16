@@ -2,7 +2,7 @@
 # Mica Marietta
 # Jessie Roux
 
-Panther Pickup is a rideshare application intended to help prevent drunk and distracted driving at Chapman University within the student community. It is a .NET web application that features an intuitive and accessible user experience for all users. The platform is driven by students: users are able to sign up as passengers or drivers, either requesting rides or completing ride requests.
+Panther Pickup is a rideshare application intended to help prevent drunk and distracted driving at Chapman University within the student community. It is a .NET web application that features an intuitive and accessible user experience for all users. The platform is driven by students: users are able to sign up as passengers or drivers, either requesting rides or completing ride requests. This version's focus is on the passengers as any Chapman student would be allowed to sign up - drivers are preset due to Chapman having selected a group of drivers. 
 
 How to run the application: 
 - Download and run the executable
